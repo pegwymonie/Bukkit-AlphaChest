@@ -41,7 +41,7 @@ public class ChestCommands implements CommandExecutor {
 				return true;
 			}
 
-			if (args.length == 0 || args[0] == "1" ) {
+			if (args.length == 0 ) {
 				// Open own chest
 				if (sender.hasPermission("alphachest.chest")) {
 					Inventory chest = chestManager.getChest(sender.getName());
