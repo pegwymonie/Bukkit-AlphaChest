@@ -41,12 +41,13 @@ public class ChestCommands implements CommandExecutor {
 				return true;
 			}
 
-			if (args.length == 0) {
+			if (args.length == 0 || args[0] == "1" ) {
 				// Open own chest
 				if (sender.hasPermission("alphachest.chest")) {
 					Inventory chest = chestManager.getChest(sender.getName());
 					player.openInventory(chest);
-				} else {
+				}                                
+                                else {
 					Teller.tell(sender, Type.Error, "You are not allowed to use this command.");
 				}
 				return true;
@@ -55,7 +56,14 @@ public class ChestCommands implements CommandExecutor {
 				if (sender.hasPermission("alphachest.admin")) {
 					Inventory chest = chestManager.getChest(args[0]);
 					player.openInventory(chest);
-				} else {
+				} 
+                                //Hackish, open the players chest number x
+                                else if(sender.hasPermission("alphachest.chest." + args[0]))
+                                {
+                                    Inventory chest = chestManager.getChest(sender.getName() + "&&" + args[0]);
+					player.openInventory(chest);
+                                }
+                                else {
 					Teller.tell(sender, Type.Error, "You are not allowed to open other user's chests.");
 				}
 				return true;

@@ -10,6 +10,7 @@ commands:
         description: Opens a virtual player-specific chest.
         usage: |
               /<command> - Opens your private chest.
+              /<command> [number] Opens X chest.
               /<command> [player] - Opens someone else's chest.
     clearchest:
         description: Clears the contents of your AlphaChest.
@@ -32,6 +33,8 @@ permissions:
             alphachest.workbench: true
     alphachest.chest:
         description: Gives access to the virtual chest.
+    alphachest.chest.X:
+        description: Gives access to the players Extra virtual chests.
     alphachest.workbench:
         description: Gives access to the virtual workbench.
 
